@@ -1,46 +1,39 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مشاهدة القنوات</title>
+    <title>TV Lite</title>
     <style>
       body {
+        background-color: #000000;
         margin: 0;
         padding: 0;
-        background-color: #1a1a1a;
-        font-family: sans-serif;
         color: white;
-      }
-      .container {
-        width: 100%;
-        max-width: 800px; /* أقصى عرض كي لا يتشوه الشكل على الكمبيوتر */
-        margin: 0 auto;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-      .channel-box {
-        background-color: #000;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #333;
-      }
-      .channel-title {
-        padding: 10px;
         text-align: center;
-        background-color: #222;
-        margin: 0;
-        font-size: 1.2rem;
+        font-family: sans-serif;
       }
-      /* هذا الكلاس يجعل الفيديو متجاوباً ويحافظ على الأبعاد */
-      .video-wrapper {
+      .tv-container {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .channel-header {
+        padding: 5px;
+        background-color: #333;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      /* تنسيق خاص للتوافق مع المتصفحات العتيقة */
+      .iframe-wrapper {
         position: relative;
-        padding-bottom: 56.25%; /* نسبة 16:9 */
+        width: 100%;
         height: 0;
-        overflow: hidden;
+        padding-bottom: 60%; /* تعديل النسبة لتناسب التلفاز */
+        background: #111;
+        border: 1px solid #444;
       }
-      .video-wrapper iframe {
+      iframe {
         position: absolute;
         top: 0;
         left: 0;
@@ -48,39 +41,42 @@
         height: 100%;
         border: 0;
       }
+      .note {
+        font-size: 12px;
+        color: #ffff00;
+        padding: 5px;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
+
+    <div class="tv-container">
       
-      <div class="channel-box">
-        <h1 class="channel-title">BeIN Sports 3</h1>
-        <div class="video-wrapper">
-          <iframe
-            title="BeIN Sports 3 Live"
-            src="https://ww.aflam4you.net/zremb472.php?vid=1&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=111332211333"
-            allow="autoplay; fullscreen; encrypted-media"
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-            scrolling="no"
-          >
-          </iframe>
-        </div>
+      <div class="channel-header">BeIN Sports 3</div>
+      <div class="note">اضغط وسط الشاشة إذا لم يعمل الفيديو تلقائياً</div>
+      
+      <div class="iframe-wrapper">
+        <iframe
+          src="https://ww.aflam4you.net/zremb472.php?vid=1&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=111332211333"
+          allowfullscreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          scrolling="no">
+        </iframe>
       </div>
 
-      <div class="channel-box">
-        <h1 class="channel-title">BeIN Sports 1</h1>
-        <div class="video-wrapper">
-          <iframe
-            title="BeIN Sports 1 Live"
-            src="https://ww.aflam4you.net/zremb472.php?vid=68&aflam_s=1&aflam_w=5675&aflam_h=556755&aflam_k=111332211333"
-            allow="autoplay; fullscreen; encrypted-media"
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-            scrolling="no"
-          >
-          </iframe>
-        </div>
+      <div class="channel-header">BeIN Sports 1</div>
+      <div class="iframe-wrapper">
+        <iframe
+          src="https://ww.aflam4you.net/zremb472.php?vid=68&aflam_s=1&aflam_w=5675&aflam_h=556755&aflam_k=111332211333"
+          allowfullscreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          scrolling="no">
+        </iframe>
       </div>
 
     </div>
+
   </body>
 </html>
