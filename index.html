@@ -1,39 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Lite</title>
+    <title>مشاهدة القنوات</title>
     <style>
+      /* إعدادات عامة للصفحة */
       body {
-        background-color: #000000;
         margin: 0;
         padding: 0;
+        background-color: #121212; /* لون داكن مريح للعين */
+        font-family: Arial, sans-serif;
         color: white;
+      }
+
+      /* حاوية القنوات */
+      .container {
+        width: 96%;
+        max-width: 800px;
+        margin: 10px auto;
+        display: block;
+      }
+
+      /* تصميم الصندوق الخاص بكل قناة */
+      .channel-box {
+        background-color: #000;
+        border: 2px solid #333;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      }
+
+      /* عنوان القناة */
+      .channel-title {
+        background-color: #1e1e1e;
+        color: #fff;
+        padding: 10px;
+        margin: 0;
         text-align: center;
-        font-family: sans-serif;
+        font-size: 18px;
+        border-bottom: 1px solid #333;
       }
-      .tv-container {
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      .channel-header {
-        padding: 5px;
-        background-color: #333;
-        font-size: 20px;
-        margin-top: 20px;
-      }
-      /* تنسيق خاص للتوافق مع المتصفحات العتيقة */
-      .iframe-wrapper {
+
+      /* حاوية الفيديو لجعلها متجاوبة 100% */
+      .video-wrapper {
         position: relative;
-        width: 100%;
+        padding-bottom: 56.25%; /* أبعاد 16:9 */
         height: 0;
-        padding-bottom: 60%; /* تعديل النسبة لتناسب التلفاز */
-        background: #111;
-        border: 1px solid #444;
+        overflow: hidden;
+        background: #000;
       }
-      iframe {
+
+      /* تنسيق الـ Iframe داخل الحاوية */
+      .video-wrapper iframe {
         position: absolute;
         top: 0;
         left: 0;
@@ -41,39 +61,34 @@
         height: 100%;
         border: 0;
       }
-      .note {
-        font-size: 12px;
-        color: #ffff00;
-        padding: 5px;
-      }
     </style>
   </head>
   <body>
 
-    <div class="tv-container">
+    <div class="container">
       
-      <div class="channel-header">BeIN Sports 3</div>
-      <div class="note">اضغط وسط الشاشة إذا لم يعمل الفيديو تلقائياً</div>
-      
-      <div class="iframe-wrapper">
-        <iframe
-          src="https://ww.aflam4you.net/zremb472.php?vid=1&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=111332211333"
-          allowfullscreen="true"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
-          scrolling="no">
-        </iframe>
+      <div class="channel-box">
+        <h2 class="channel-title">BeIN Sports 3</h2>
+        <div class="video-wrapper">
+          <iframe
+            src="https://ww.aflam4you.net/zremb472.php?vid=1&amp;aflam_s=1&amp;aflam_w=5675&amp;aflam_h=556755&amp;aflam_k=111332211333"
+            allow="autoplay; fullscreen; encrypted-media"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox allow-forms"
+            scrolling="no">
+          </iframe>
+        </div>
       </div>
 
-      <div class="channel-header">BeIN Sports 1</div>
-      <div class="iframe-wrapper">
-        <iframe
-          src="https://ww.aflam4you.net/zremb472.php?vid=68&aflam_s=1&aflam_w=5675&aflam_h=556755&aflam_k=111332211333"
-          allowfullscreen="true"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
-          scrolling="no">
-        </iframe>
+      <div class="channel-box">
+        <h2 class="channel-title">BeIN Sports 1</h2>
+        <div class="video-wrapper">
+          <iframe
+            src="https://ww.aflam4you.net/zremb472.php?vid=68&aflam_s=1&aflam_w=5675&aflam_h=556755&aflam_k=111332211333"
+            allow="autoplay; fullscreen; encrypted-media"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox allow-forms"
+            scrolling="no">
+          </iframe>
+        </div>
       </div>
 
     </div>
